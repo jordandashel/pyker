@@ -1,6 +1,4 @@
-from values import Value
-from suits import Suit
-from card import Card
+from card import *
 import random
 
 class Deck(object):
@@ -12,4 +10,4 @@ class Deck(object):
         return self.cards.pop(0)
 
     def shuffle(self):
-       random.shuffle 
+       random.shuffle(self.cards)
