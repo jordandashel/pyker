@@ -1,10 +1,8 @@
 import unittest
 from deck import Deck
-from suits import Suit
-from values import Value
+from card import *
 
 class DeckTest(unittest.TestCase):
-    
     def setUp(self):
         self.new_deck = Deck()
 
@@ -27,8 +25,8 @@ class DeckTest(unittest.TestCase):
         self.assertEqual(first_card.suit, Suit['Clubs'])
         self.assertEqual(first_card.value, Value['Two'])
 
-        different_suit = first_card.suit != second_card.suit 
-        different_card = first_card.value != second_card.value    
+        different_suit = first_card.suit != second_card.suit
+        different_card = first_card.value != second_card.value
 
         different_card = different_suit or different_suit
 
@@ -36,6 +34,7 @@ class DeckTest(unittest.TestCase):
 
     def test_shuffle_deck(self):
         self.new_deck.shuffle()
-        first_card = self.new_deck.cards[0] 
-        self.assertNotEqual(first_card.suit, Suit['Clubs'])
-        self.assertNotEqual(first_card.value, Value['Two']) 
+        first_card = self.new_deck.cards[0]
+        suit = first_card.suit
+        self.assertFalse(first_card.suit == Suit['Clubs']
+                and first_card.value == Value['Two'])
